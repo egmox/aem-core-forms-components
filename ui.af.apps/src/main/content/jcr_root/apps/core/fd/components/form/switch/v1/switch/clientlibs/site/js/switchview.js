@@ -63,32 +63,23 @@
             return this.element.querySelector(Switch.selectors.qm);
         }
 
-        initializeWidget() {
-            this.widgetObject = new SwitchWidget(this.getWidget(), this._model);
-            this.getWidget().addEventListener('blur', (e) => {
-                if(this.element) {
-                    this.setActive(this.element, false);
-                }
-            });
-        }
-
         updateValue(modelValue) {
             if (modelValue === this._model._jsonModel.enum[0]) {
+                this.widget.checked = false;
+                this.widget.removeAttribute(FormView.Constants.HTML_ATTRS.CHECKED);
+                this.widget.setAttribute(FormView.Constants.ARIA_CHECKED, false);
+            } else {
                 this.widget.checked = true
                 this.widget.setAttribute(FormView.Constants.HTML_ATTRS.CHECKED, FormView.Constants.HTML_ATTRS.CHECKED)
                 this.widget.setAttribute(FormView.Constants.ARIA_CHECKED, true);
-            } else {
-                this.widget.checked = false
-                this.widget.removeAttribute(FormView.Constants.HTML_ATTRS.CHECKED);
-                this.widget.setAttribute(FormView.Constants.ARIA_CHECKED, false);
             }
             this.widget.value = modelValue;
         }
 
         setModel(model) {
             super.setModel(model);
-            this._onValue = this._model._jsonModel.enum[0];
-            this._offValue = this._model._jsonModel.enum[1];
+            this._onValue = this._model._jsonModel.enum[1];
+            this._offValue = this._model._jsonModel.enum[0];
             this.widget.addEventListener('change', (e) => {
                 if (this.widget.checked) {
                     this._model.value = this._onValue;
@@ -96,7 +87,6 @@
                     this._model.value = this._offValue;
                 }
             })
-
         }
     }
 
