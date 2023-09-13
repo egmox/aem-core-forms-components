@@ -28,19 +28,20 @@
      data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
      data-cmp-visible="${switch.visible ? 'true' : 'false'}"
      data-cmp-enabled="${switch.enabled ? 'true' : 'false'}"
-     data-cmp-required="${switch.required ? 'true': 'false'}"
+     data-cmp-required="${switch.required ? 'true' : 'false'}"
      data-cmp-data-layer="${switch.data.json}"
-     data-sly-test.widgetId="${'{0}-{1}' @ format=[component.id, '_widget']}"
+     data-sly-test.widgetId="${'{0}-{1}' @ format=[switch.id, '_widget']}"
      data-cmp-adaptiveformcontainer-path="${formstructparser.formContainerPath}">
     <div class="cmp-adaptiveform-switch__label-container">
         <div data-sly-call="${label.label @componentId=widgetId, labelValue=switch.label.value, labelVisible=switch.label.visible, bemBlock='cmp-adaptiveform-switch'}" data-sly-unwrap></div>
         <div data-sly-call="${questionMark.questionMark @componentId=switch.id, longDescription=switch.description, bemBlock='cmp-adaptiveform-switch'}" data-sly-unwrap></div>
     </div>
 
-    <div class="cmp-adaptiveform-switch__container">
+    <div class="cmp-adaptiveform-switch__container" id="${widgetId}">
         <div class="cmp-adaptiveform-switch__options cmp-adaptiveform-switch__options--off">${switch.enumNames[0]}</div>
         <label class="cmp-adaptiveform-switch__widget-container">
             <input class="cmp-adaptiveform-switch__widget"
+                   name="${switch.name}"
                    type="checkbox"
                    disabled="${!switch.enabled || switch.readOnly}"
                    value="${switch.default}"

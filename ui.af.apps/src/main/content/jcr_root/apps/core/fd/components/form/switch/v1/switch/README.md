@@ -25,7 +25,7 @@ Adaptive Form Switch component written in HTL.
 * Styles
 
 ### Use Object
-The Form switch component uses the `com.adobe.cq.forms.core.components.models.form.CheckBox` Sling Model for its Use-object.
+The Form switch component uses the `com.adobe.cq.forms.core.components.models.form.Switch` Sling Model for its Use-object.
 
 ### Edit Dialog Properties
 The following properties are written to JCR for this Form Switch component and are expected to be available as `Resource` properties:
