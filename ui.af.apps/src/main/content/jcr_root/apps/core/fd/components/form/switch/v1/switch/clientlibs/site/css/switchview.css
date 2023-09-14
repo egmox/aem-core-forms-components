@@ -27,3 +27,18 @@ input:checked + .cmp-adaptiveform-switch__widget-slider:before {
 
 .cmp-adaptiveform-switch__widget-slider:before {
 }
+
+.cmp-adaptiveform-switch__longdescription {
+}
+
+.cmp-adaptiveform-switch__questionmark {
+}
+
+.cmp-adaptiveform-switch__errormessage {
+}
+
+.cmp-adaptiveform-switch__help-container .cmp-adaptiveform-switch__questionmark {
+}
+
+.cmp-adaptiveform-switch__shortdescription {
+}

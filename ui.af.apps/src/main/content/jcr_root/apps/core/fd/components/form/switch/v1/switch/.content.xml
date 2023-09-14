@@ -5,4 +5,3 @@
     jcr:title="Adaptive Form Switch (v1)"
     sling:resourceSuperType="core/fd/components/form/checkbox/v1/checkbox"
     componentGroup=".core-adaptiveform"/>
-        examples/ui.apps/src/main/content/jcr_root/apps/forms-components-examples/components/form/switch/_cq_template.xml

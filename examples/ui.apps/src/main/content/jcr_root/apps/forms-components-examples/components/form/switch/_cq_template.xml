@@ -5,4 +5,5 @@
           fieldType="checkbox"
           default="0"
           enum="[0,1]"
+          uncheckedValue="off"
           enumNames="[OFF,ON]"/>
