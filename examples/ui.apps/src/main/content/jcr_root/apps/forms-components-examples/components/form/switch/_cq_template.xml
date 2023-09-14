@@ -3,7 +3,6 @@
           jcr:primaryType="nt:unstructured"
           jcr:title="Switch"
           fieldType="checkbox"
-          orientation="horizontal"
           default="0"
           enum="[0,1]"
           enumNames="[OFF,ON]"/>
