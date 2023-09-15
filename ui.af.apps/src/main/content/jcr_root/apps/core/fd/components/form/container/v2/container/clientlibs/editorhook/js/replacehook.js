@@ -27,7 +27,7 @@
     const typeMap = {
         'button': fieldTypes.NON_INPUT,
         'checkbox-group': fieldTypes.SELECT,
-        'checkbox': fieldTypes.NON_INPUT,
+        'checkbox': fieldTypes.SELECT,
         'date-input': fieldTypes.TEXT,
         'drop-down': fieldTypes.SELECT,
         'email': fieldTypes.TEXT,

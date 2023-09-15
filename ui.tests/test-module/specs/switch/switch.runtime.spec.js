@@ -16,11 +16,7 @@
 describe("Form Runtime with Switch Input", () => {
 
     const pagePath = "content/forms/af/core-components-it/samples/switch/basic.html"
-    const bemBlock = 'cmp-adaptiveform-switch'
-    const IS = "adaptiveFormSwitch"
-    const selectors = {
-        switch : `[data-cmp-is="${IS}"]`
-    }
+    const bemBlock = "cmp-adaptiveform-switch"
 
     let formContainer = null
 
@@ -135,8 +131,9 @@ describe("Form Runtime with Switch Input", () => {
         cy.toggleDescriptionTooltip(bemBlock, id);
     })
 
-    it("should show and hide components on certain switch input", () => {
-        // Rule on switch2: When switch2 has Item 1 AND Item 3 selected => Show switch3 and Hide switch4
+    it.only("should show and hide components on certain switch input", () => {
+        // Rule on switch4: When switch4 is ON => Show switch5 and
+        // hide switch5 when switch4 is OFF
 
         const ruleSwitch = formContainer._model.items[3].id;
         const hiddenCB = formContainer._model.items[4].id;
@@ -153,7 +150,8 @@ describe("Form Runtime with Switch Input", () => {
     })
 
     it("should enable and disable components on certain switch input", () => {
-        // Rule on switch4: When switch4 has Item 3 selected => Enable switch1 and Disable switch2
+        // Rule on switch enabledisable: When switch 'enabledisable' is ON => Enable switch cb5
+        // and hide cb5 when enabledisable is OFF
 
         const enabledisablecb = formContainer._model.items[5].id;
         const cbUnderTest = formContainer._model.items[6].id;
