@@ -31,7 +31,7 @@
   }
 
   /**
-   * The off value of a checkbox is optional, if not defined then no value will be submitted when the checkbox is not selected.
+   * The off value of a switch is optional, if not defined then no value will be submitted when the switch is not selected.
    * To explicitly send the off value, user needs to switch the 'enableUncheckedValue' on.
    * @param dialog
    */
