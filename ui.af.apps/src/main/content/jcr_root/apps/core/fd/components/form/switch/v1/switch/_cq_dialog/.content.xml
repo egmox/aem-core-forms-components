@@ -58,6 +58,20 @@
                                                     </enumOptions>
                                                 </items>
                                             </enums>
+                                            <enums_123 jcr:primaryType="nt:unstructured"
+                                                       sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                       granite:class="cmp-adaptiveform-checkbox__enums">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <checkedValue
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:hideResource="{Boolean}true"
+                                                            name="./checkedValue"/>
+                                                    <unCheckedValue
+                                                            sling:hideResource="{Boolean}true"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            name="./uncheckedValue"/>
+                                                </items>
+                                            </enums_123>
                                         </items>
                                     </column>
                                 </items>
