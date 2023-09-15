@@ -59,10 +59,10 @@ describe("Form Runtime with Switch Input", () => {
         });
     })
 
-    it.skip(" model's changes are reflected in the html ", () => {
+    it(" model's changes are reflected in the html ", () => {
         const id = formContainer._model.items[0].id;
         const model = formContainer._model.getElement(id)
-        model.value = 'true'
+        model.value = '0'
 
         checkHTML(model.id, model.getState()).then(() => {
             return checkHTML(model.id, model.getState())
@@ -83,16 +83,16 @@ describe("Form Runtime with Switch Input", () => {
         const model = formContainer._model.getElement(id)
         cy.get(`#${id}`).find("input").click().then(() => {
             cy.get(`#${id}`).find("input").click().then(() => {
-                expect(model.getState().value).eq('0')
+                expect(model.getState().value).eq('1')
             })
         })
 
     })
 
-    it ('should have value set to default during initial render', () => {
+    it('should have value set to default during initial render', () => {
         const id = formContainer._model.items[1].id;
         const model = formContainer._model.getElement(id)
-        expect(model.getState().value).to.contain('1');
+        expect(model.getState().value).to.contain('0');
         cy.get(`#${id}`).get('input').should('be.checked');
     })
 
@@ -101,11 +101,11 @@ describe("Form Runtime with Switch Input", () => {
         const id = formContainer._model.items[0].id;
         const model = formContainer._model.getElement(id)
         cy.get(`#${id}`).find("input").click().then(x => {
-            expect(model.getState().value).to.contain('1');
+            expect(model.getState().value).to.contain('0');
         })
 
         cy.get(`#${id}`).find("input").click().then(x => {
-            expect(model.getState().value).to.contain('0');
+            expect(model.getState().value).to.contain('1');
         })
     });
 
@@ -114,7 +114,7 @@ describe("Form Runtime with Switch Input", () => {
         const model = formContainer._model.getElement(id)
 
         cy.get(`#${id}`).find("input").click().then(x => {
-            expect(model.getState().value).to.contain('1');
+            expect(model.getState().value).to.contain('0');
         })
 
         cy.get(`#${id}`).find("input").click().then(x => {
@@ -131,7 +131,7 @@ describe("Form Runtime with Switch Input", () => {
         cy.toggleDescriptionTooltip(bemBlock, id);
     })
 
-    it.only("should show and hide components on certain switch input", () => {
+    it("should show and hide components on certain switch input", () => {
         // Rule on switch4: When switch4 is ON => Show switch5 and
         // hide switch5 when switch4 is OFF
 
