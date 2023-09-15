@@ -53,7 +53,7 @@
                                                     <enumOptions jcr:primaryType="nt:unstructured"
                                                                  sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                                  wrapperClass="cmp-adaptiveform-switch__enums"
-                                                                 fieldDescription="Provide the pair of enum (data value) and enumName (display text) for each option."
+                                                                 fieldDescription="Provide switch state data and display text for each option."
                                                                  fieldLabel="Options">
                                                     </enumOptions>
                                                 </items>

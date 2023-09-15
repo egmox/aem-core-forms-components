@@ -60,6 +60,7 @@ describe('Page - Authoring', function () {
 
   context('Open Forms Editor', function() {
     const pagePath = "/content/forms/af/core-components-it/blank",
+
         switchEditPath = pagePath + afConstants.FORM_EDITOR_FORM_CONTAINER_SUFFIX + "/switch",
         switchEditPathSelector = "[data-path='" + switchEditPath + "']",
         switchDrop = pagePath + afConstants.FORM_EDITOR_FORM_CONTAINER_SUFFIX + "/" + afConstants.components.forms.resourceType.switch.split("/").pop();
@@ -71,6 +72,22 @@ describe('Page - Authoring', function () {
 
     it('insert Switch in form container', function () {
       dropSwitchInContainer();
+      cy.deleteComponentByPath(switchDrop);
+    });
+
+    it('when enableUnchecked is false hides off field', function () {
+      dropSwitchInContainer();
+      const pagePath = "/content/forms/af/core-components-it/blank",
+      switchEditPath = pagePath + afConstants.FORM_EDITOR_FORM_CONTAINER_SUFFIX + "/switch",
+      switchEditPathSelector = "[data-path='" + switchEditPath + "']";
+      cy.openEditableToolbar(sitesSelectors.overlays.overlay.component + switchEditPathSelector);
+      cy.invokeEditableAction("[data-action='CONFIGURE']"); // this line is causing frame busting which is causing cypress to fail
+      cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('not.be.visible')
+      const enableUnchecked = '[name="./enableUncheckedValue"]';
+      cy.get(enableUnchecked).eq(0).click().then(() => {
+        cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('be.visible')
+      })
+      cy.get('.cq-dialog-cancel').click();
       cy.deleteComponentByPath(switchDrop);
     });
 
@@ -92,6 +109,19 @@ describe('Page - Authoring', function () {
 
     it('insert aem forms Switch', function () {
       dropSwitchInSites();
+      cy.deleteComponentByPath(switchDrop);
+    });
+
+    it('when enableUnchecked is false hides off field', function () {
+      dropSwitchInSites();
+      cy.openEditableToolbar(sitesSelectors.overlays.overlay.component + switchEditPathSelector);
+      cy.invokeEditableAction("[data-action='CONFIGURE']"); // this line is causing frame busting which is causing cypress to fail
+      cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('not.be.visible');
+      const enableUnchecked = '[name="./enableUncheckedValue"]';
+      cy.get(enableUnchecked).eq(0).click().then(() => {
+        cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('be.visible')
+      })
+      cy.get('.cq-dialog-cancel').click();
       cy.deleteComponentByPath(switchDrop);
     });
 
