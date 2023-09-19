@@ -38,8 +38,8 @@
     </div>
 
     <div class="cmp-adaptiveform-switch__container" id="${widgetId}">
-        <div class="cmp-adaptiveform-switch__options cmp-adaptiveform-switch__options--off">${switch.enumNames[0]}</div>
-        <label class="cmp-adaptiveform-switch__widget-container">
+        <div class="cmp-adaptiveform-switch__option cmp-adaptiveform-switch__option--off">${switch.enumNames[0]}</div>
+        <label class="cmp-adaptiveform-switch__widget-label">
             <input class="cmp-adaptiveform-switch__widget"
                    name="${switch.name}"
                    type="checkbox"
@@ -48,7 +48,7 @@
                    aria-readonly="${switch.readOnly ? 'true' : ''}">
             <div class="cmp-adaptiveform-switch__widget-slider"></div>
         </label>
-        <div class="cmp-adaptiveform-switch__options  cmp-adaptiveform-switch__options--on">${switch.enumNames[1]}</div>
+        <div class="cmp-adaptiveform-switch__option cmp-adaptiveform-switch__option--on">${switch.enumNames[1]}</div>
     </div>
 
     <div data-sly-call="${shortDescription.shortDescription @componentId=switch.id, shortDescriptionVisible=switch.tooltipVisible, shortDescription=switch.tooltip, bemBlock='cmp-adaptiveform-switch'}" data-sly-unwrap>
