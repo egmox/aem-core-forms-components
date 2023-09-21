@@ -16,29 +16,20 @@
 (function($) {
   "use strict";
 
-  var EDIT_DIALOG = ".cmp-adaptiveform-switch__editdialog",
+  const EDIT_DIALOG = ".cmp-adaptiveform-switch__editdialog",
       ENABLE_UNCHECKED_VALUE = EDIT_DIALOG + " .cmp-adaptiveform-switch__enable-unchecked-value",
       ENUM_OPTION = ".cmp-adaptiveform-switch__enums coral-multifield-item",
       Utils = window.CQ.FormsCoreComponents.Utils.v1;
-
-  function _handleLayout(dialog) {
-    var switchWrapper =  dialog.find(ENABLE_UNCHECKED_VALUE)[0];
-    $(switchWrapper).css({"display":"flex", "margin-bottom":"1px"});
-    var label = $(switchWrapper).find('label[class="coral-Form-fieldlabel"]')[0];
-    $(label).css('padding-right', '20px');
-    var switchBtn = dialog.find('coral-switch[name="./enableUncheckedValue"]')[0];
-    $(switchBtn).css({"width":"40px"});
-  }
 
   /**
    * The off value of a switch is optional, if not defined then no value will be submitted when the switch is not selected.
    * To explicitly send the off value, user needs to switch the 'enableUncheckedValue' on.
    * @param dialog
    */
-  function _handleOffFieldVisibility(dialog) {
-    var enableOffValueSwitch = $('coral-switch[name="./enableUncheckedValue"]')[0];
-    var isChecked = enableOffValueSwitch.hasAttribute('checked');
-    var offField = $($(ENUM_OPTION)[0]);
+  function handleOffFieldVisibility(dialog) {
+    const enableOffValueSwitch = $(ENABLE_UNCHECKED_VALUE)[0];
+    let isChecked = enableOffValueSwitch.hasAttribute('checked');
+    const offField = $($(ENUM_OPTION)[1]);
 
     offField.css({"display": isChecked ? "block" : "none"})
     enableOffValueSwitch.addEventListener("click", function() {
@@ -47,6 +38,6 @@
     })
   }
 
-  Utils.initializeEditDialog(EDIT_DIALOG)(_handleLayout, _handleOffFieldVisibility);
+  Utils.initializeEditDialog(EDIT_DIALOG)(handleOffFieldVisibility);
 
 })(jQuery);
