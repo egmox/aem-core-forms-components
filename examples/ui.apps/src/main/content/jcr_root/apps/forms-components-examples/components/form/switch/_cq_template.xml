@@ -3,5 +3,5 @@
           jcr:primaryType="nt:unstructured"
           jcr:title="Switch"
           fieldType="checkbox"
-          enum="[0,1]"
-          enumNames="[OFF,ON]"/>
+          enum="[1,0]"
+          enumNames="[ON,OFF]"/>

@@ -125,7 +125,7 @@ describe('Page - Authoring', function () {
       cy.deleteComponentByPath(switchDrop);
     });
 
-    it('open edit dialog of aem forms Checkbpx', function() {
+    it('open edit dialog of aem forms switch', function() {
       testSwitchBehaviour(switchEditPathSelector, switchDrop, true);
     });
   })
