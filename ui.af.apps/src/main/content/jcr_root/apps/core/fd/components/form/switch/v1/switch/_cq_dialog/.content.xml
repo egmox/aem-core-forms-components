@@ -67,16 +67,16 @@
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:hideResource="{Boolean}true"
                                                             name="./checkedValue"/>
-                                                    <enableUncheckedValue
+                                                    <preserveUncheckedStateValue
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/switch"
                                                             wrapperClass="cmp-adaptiveform-switch__enable-unchecked-value"
-                                                            name="./enableUncheckedValue"
-                                                            fieldLabel="Enable Uncheck."
+                                                            name="./preserveUncheckedStateValue"
+                                                            fieldLabel="Preserve Uncheck state value."
                                                             fieldDescription="Specify the value to be returned when the switch is not on by the user."
                                                             uncheckedValue="false"
                                                             value="true">
-                                                    </enableUncheckedValue>
+                                                    </preserveUncheckedStateValue>
                                                     <unCheckedValue
                                                             sling:hideResource="{Boolean}true"
                                                             jcr:primaryType="nt:unstructured"

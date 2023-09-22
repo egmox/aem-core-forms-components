@@ -29,7 +29,6 @@ import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.forms.core.components.internal.form.FormConstants;
 import com.adobe.cq.forms.core.components.models.form.Switch;
 import com.adobe.cq.forms.core.components.util.AbstractOptionsFieldImpl;
-import com.adobe.cq.forms.core.components.util.ComponentUtils;
 
 @Model(
     adaptables = { SlingHttpServletRequest.class, Resource.class },
@@ -39,16 +38,16 @@ import com.adobe.cq.forms.core.components.util.ComponentUtils;
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class SwitchImpl extends AbstractOptionsFieldImpl implements Switch {
 
-//    when a checkbox is not checked, it will still have a value representing its unchecked state, rather than having
-//    a null value. This configuration allows for a distinct value when the checkbox is in an unchecked state.
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private Boolean enableUncheckedValue;
+    // when a checkbox is not checked, it will still have a value representing its unchecked state, rather than having
+    // a null value. This configuration allows for a distinct value when the checkbox is in an unchecked state.
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL, name = "preserveUncheckedStateValue")
+    private Boolean preserveUncheckedStateValue;
 
     @PostConstruct
     private void initSwitchModel() {
         String[] enumNameArray = this.getEnumNames();
         if (!Type.BOOLEAN.equals(type)) {
-            if (Boolean.TRUE.equals(enableUncheckedValue)) {
+            if (Boolean.TRUE.equals(preserveUncheckedStateValue)) {
                 enums = new String[] { this.getEnums()[0].toString(), this.getEnums()[1].toString() };
                 enumNames = new String[] { this.getEnumNames()[0], this.getEnumNames()[1] };
             } else {
@@ -56,7 +55,7 @@ public class SwitchImpl extends AbstractOptionsFieldImpl implements Switch {
                 enumNames = new String[] { enumNameArray[0] };
             }
         } else {
-            if (Boolean.TRUE.equals(enableUncheckedValue)) {
+            if (Boolean.TRUE.equals(preserveUncheckedStateValue)) {
                 enums = new String[] { "true", "false" };
                 enumNames = new String[] { "true", "false" };
             } else {

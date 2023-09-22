@@ -83,7 +83,7 @@ describe('Page - Authoring', function () {
       cy.openEditableToolbar(sitesSelectors.overlays.overlay.component + switchEditPathSelector);
       cy.invokeEditableAction("[data-action='CONFIGURE']"); // this line is causing frame busting which is causing cypress to fail
       cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('not.be.visible')
-      const enableUnchecked = '[name="./enableUncheckedValue"]';
+      const enableUnchecked = '[name="./preserveUncheckedStateValue"]';
       cy.get(enableUnchecked).eq(0).click().then(() => {
         cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('be.visible')
       })
@@ -117,7 +117,7 @@ describe('Page - Authoring', function () {
       cy.openEditableToolbar(sitesSelectors.overlays.overlay.component + switchEditPathSelector);
       cy.invokeEditableAction("[data-action='CONFIGURE']"); // this line is causing frame busting which is causing cypress to fail
       cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('not.be.visible');
-      const enableUnchecked = '[name="./enableUncheckedValue"]';
+      const enableUnchecked = '[name="./preserveUncheckedStateValue"]';
       cy.get(enableUnchecked).eq(0).click().then(() => {
         cy.get(".cmp-adaptiveform-switch__enums coral-multifield-item").eq(0).should('be.visible')
       })

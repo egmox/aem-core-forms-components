@@ -13,7 +13,7 @@
     "type" : "string",
     "checkedValue":  "on",
     "uncheckedValue": "off",
-    "enableUncheckedValue": true,
+    "preserveUncheckedStateValue": true,
     "fieldType": "checkbox",
     "fd:rules" : {
       "jcr:primaryType": "nt:unstructured"
@@ -43,7 +43,7 @@
     "fieldType": "checkbox",
     "checkedValue":  "yes",
     "uncheckedValue": "no",
-    "enableUncheckedValue": true,
+    "preserveUncheckedStateValue": true,
     "fd:rules" : {
       "jcr:primaryType": "nt:unstructured"
     },
@@ -71,7 +71,7 @@
       "jcr:primaryType": "nt:unstructured"
     }
   },
-  "checkbox-enableUncheckedValueFalse" : {
+  "checkbox-preserveUncheckedStateValueFalse" : {
     "jcr:primaryType": "nt:unstructured",
     "sling:resourceType"    : "core/fd/components/form/checkbox/v1/checkbox",
     "name" : "abc",
@@ -85,7 +85,7 @@
     "type" : "string",
     "checkedValue":  "on",
     "uncheckedValue": "off",
-    "enableUncheckedValue": false,
+    "preserveUncheckedStateValue": false,
     "fieldType": "checkbox",
     "fd:rules" : {
       "jcr:primaryType": "nt:unstructured"
