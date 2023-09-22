@@ -19,11 +19,27 @@
   const EDIT_DIALOG = ".cmp-adaptiveform-switch__editdialog",
       ENABLE_UNCHECKED_VALUE = EDIT_DIALOG + " .cmp-adaptiveform-switch__enable-unchecked-value",
       ENUM_OPTION = ".cmp-adaptiveform-switch__enums coral-multifield-item",
+      SWITCH_TYPE = EDIT_DIALOG + " .cmp-adaptiveform-switch__type",
+      SWITCH_DEFAULTVALUE = EDIT_DIALOG + " .cmp-adaptiveform-switch__value",
+      SWITCH_ENUM = EDIT_DIALOG + " .cmp-adaptiveform-base__enum",
       Utils = window.CQ.FormsCoreComponents.Utils.v1;
+
+  var registerDialogValidator = Utils.registerDialogDataTypeValidators(
+      SWITCH_DEFAULTVALUE,
+      SWITCH_ENUM,
+      function (dialog) {
+        var selectedValue = '';
+        var switchSaveValue = dialog.find(SWITCH_TYPE);
+        if (switchSaveValue && switchSaveValue.length > 0) {
+          selectedValue = switchSaveValue[0].selectedItem ? switchSaveValue[0].selectedItem.value : '';
+        }
+        return selectedValue.toLowerCase();
+      }
+  );
 
   /**
    * The off value of a switch is optional, if not defined then no value will be submitted when the switch is not selected.
-   * To explicitly send the off value, user needs to switch the 'enableUncheckedValue' on.
+   * To explicitly send the off value, user needs to switch the 'preserveUncheckedStateValue' on.
    * @param dialog
    */
   function handleOffFieldVisibility(dialog) {
@@ -38,6 +54,6 @@
     })
   }
 
-  Utils.initializeEditDialog(EDIT_DIALOG)(handleOffFieldVisibility);
+  Utils.initializeEditDialog(EDIT_DIALOG)(handleOffFieldVisibility, registerDialogValidator);
 
 })(jQuery);

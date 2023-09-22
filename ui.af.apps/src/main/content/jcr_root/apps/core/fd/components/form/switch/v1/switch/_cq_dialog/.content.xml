@@ -58,6 +58,21 @@
                                                     </enumOptions>
                                                 </items>
                                             </enums>
+                                            <type jcr:primaryType="nt:unstructured"
+                                                  sling:orderBefore="visible"
+                                                  sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                  granite:class="cmp-adaptiveform-switch__type"
+                                                  fieldLabel="Data type of submitted value"
+                                                  required="{Boolean}true"
+                                                  name="./type"
+                                                  key="String"
+                                                  value="string">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <string jcr:primaryType="nt:unstructured" text="String" value="string"/>
+                                                    <boolean jcr:primaryType="nt:unstructured" text="Boolean" value="boolean"/>
+                                                    <number jcr:primaryType="nt:unstructured" text="Number" value="number"/>
+                                                </items>
+                                            </type>
                                             <enumsCustom jcr:primaryType="nt:unstructured"
                                                        sling:orderBefore="enums"
                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
