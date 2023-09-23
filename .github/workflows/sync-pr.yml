@@ -26,7 +26,5 @@ jobs:
           git pull origin ${{ github.event.pull_request.base.ref }}
           git checkout ${{ github.event.pull_request.head.ref }}
           git pull origin ${{ github.event.pull_request.head.ref }}
-          git rebase ${{ github.event.pull_request.base.ref }}
-          git push --force origin ${{ github.event.pull_request.head.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
